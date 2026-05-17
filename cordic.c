@@ -26,8 +26,8 @@ int step(long long *goal, long long *angle, long long *vector, int n) {
 
 // angles and sin/cos are stored as long long fixnums to make use of bitshifts
 double *cordic(double angle) {
-    if (angle < -MY_PI/2. || angle >= 3 * MY_PI/2.) {
-        if (angle < -MY_PI/2.) {
+    if (angle < -MY_PI / 2. || angle >= 3 * MY_PI / 2.) {
+        if (angle < -MY_PI / 2.) {
             return cordic(angle + 2 * MY_PI);
         } else {
             return cordic(angle - 2 * MY_PI);
@@ -39,7 +39,7 @@ double *cordic(double angle) {
     int code;
     int k_val = 0;
     int sgn = 1;
-    if(angle > MY_PI/2. && angle < 3*MY_PI/2.){
+    if (angle > MY_PI / 2. && angle < 3 * MY_PI / 2.) {
         sgn = -1;
         fixnum_goal = (angle - MY_PI) * 1e14;
     } else {
@@ -51,9 +51,9 @@ double *cordic(double angle) {
             break;
         }
     }
-    if(k_val>0){
-    vector[0] *= k[k_val - 1];
-    vector[1] *= k[k_val - 1];
+    if (k_val > 0) {
+        vector[0] *= k[k_val - 1];
+        vector[1] *= k[k_val - 1];
     }
     double *result = (double *)malloc(2 * sizeof(int));
     result[0] = sgn * vector[0] / 1.e14;
