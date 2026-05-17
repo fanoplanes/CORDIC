@@ -31,9 +31,9 @@ int main(void)
 	fprintf(fp, "const double angles[] = {\n");
 	for (int i = 0; i < 47; i++) {
 		if (i == 46) {
-			fprintf(fp, "\t%Li", angles[i]);
+			fprintf(fp, "\t%lli", angles[i]);
 		} else {
-			fprintf(fp, "\t%Li,", angles[i]);
+			fprintf(fp, "\t%lli,", angles[i]);
 		}
 		if (i % 4 == 3)
 			fprintf(fp, "\n");
